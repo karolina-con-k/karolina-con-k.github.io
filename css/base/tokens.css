@@ -1,0 +1,17 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 / 256 / 296
+
+FONT SIZE SYSTEM (px)
+10 / 13 / 16 / 20 / 25 / 31 / 40 / 49 / 64 / 76 / 95
+*/
+
+:root {
+    --greish: #FFFAEE;
+    --blackish: #242220;
+    --lime: #D9FF00;
+    --white: #FFFFFF;
+
+    --radio-s: 10px;
+    --radio-l: 20px;
+}

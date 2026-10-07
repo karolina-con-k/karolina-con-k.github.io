@@ -1,0 +1,913 @@
+/* GENERAL */
+
+.project-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    gap: 164px;
+}
+
+.project-section {
+    max-width: 80vw;
+}
+
+/* Space between consecutive paragraphs in every module */
+[class*="module-"] p + p {
+    margin-top: 1em;
+}
+
+
+/* PROJECT HERO */
+
+.project-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+}
+
+.project-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 80vw;
+    width: 100%;
+}
+
+.project-hero-left {
+    display: flex;
+    gap: 16px;
+    align-items: start;
+}
+
+.project-hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 400px;
+}
+
+/* Trim the space reserved below the baseline so the title and the last
+   paragraph line up on their baselines at the bottom of .project-hero-top */
+.project-title h1,
+.project-hero-right > p:last-child {
+    text-box: trim-end alphabetic;
+}
+
+/* Fallback for browsers without text-box (e.g. Firefox) */
+@supports not (text-box: trim-end alphabetic) {
+    .project-title h1 {
+        margin-bottom: -0.2em;
+    }
+}
+
+.project-hero-bottom {
+  flex: 0 0 auto;
+  border-radius: var(--radio-l);
+  overflow: hidden;
+  margin: 0px 32px;
+  height: 650px;
+}
+
+.project-hero-bottom video,
+.project-hero-bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.crisis-title {
+    font-size: 100px;
+}
+
+
+/* PROJECT BANNER */
+
+.project-banner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: var(--radio-l);
+  overflow: hidden;
+  background: var(--blackish);
+}
+
+
+/* PROJECT SYNOPSYS */
+
+.project-synopsys {
+    width: 550px;
+    text-align: center;
+}
+
+.project-video {
+  width: 100%;
+  max-width: 80vw;
+  height: 750px;
+  border-radius: var(--radio-l);
+  overflow: hidden;
+}
+
+.project-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+/* MODULE 1 */
+
+.module-1 {
+    display: flex;
+    gap: 120px;
+    align-items: center;
+}
+
+.module-1-left {
+    width: 500px;
+    flex: 0 0 auto;
+}
+
+.module-1-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.module-1-right-top {
+    border-radius: var(--radio-s);
+    overflow: hidden;
+}
+
+.module-1-right-top img,
+.module-1-right-top video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Crop videos to the same proportions as the numen image (922 × 556) */
+.module-1-right-top video {
+    aspect-ratio: 922 / 556;
+}
+
+.module-1-right-bottom {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.module-1-right-bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    border-radius: var(--radio-s);
+    overflow: hidden;
+    aspect-ratio: 8 / 5;
+}
+
+
+/* MODULE 2 */
+
+.module-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+
+.module-2-top {
+    max-width: 860px;
+    text-align: center;
+    text-wrap: balance;
+}
+
+/* Each paragraph is its own column, aligned at the top */
+.module-2-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    max-width: 1080px;
+}
+
+[class*="module-"] .module-2-bottom p + p {
+    margin-top: 0;
+}
+
+/* A single paragraph stays in one narrower column */
+.module-2-bottom:has(> p:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+}
+
+/* Modifier: text flows from the left column into the right one */
+.module-2-bottom.module-2-flow {
+    display: block;
+    columns: 2;
+    column-gap: 32px;
+}
+
+.module-2-bottom.module-2-flow p + p {
+    margin-top: 1em;
+}
+
+/* Modifier: whole paragraphs spread over two balanced columns.
+   Inline-block keeps each paragraph (and the space under it) in one
+   column, so no column starts with a gap in any browser */
+.module-2-bottom.module-2-balance {
+    display: block;
+    columns: 2;
+    column-gap: 32px;
+}
+
+.module-2-bottom.module-2-balance p {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+
+
+/* MODULE 3 */
+
+.module-3 {
+    display: flex;
+    gap: 16px;
+}
+
+.module-3-left {
+    border-radius: var(--radio-l);
+    overflow: hidden;
+    width: 50%;
+    /* Don't stretch to the right column's height, so the rounded corners hug the square */
+    align-self: flex-start;
+}
+
+.module-3-left img,
+.module-3-left video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.module-3-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.module-3-right-top {
+    display: flex;
+    gap: 16px;
+    container-type: inline-size;
+}
+
+.module-3-right-top img,
+.module-3-right-top video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    border-radius: var(--radio-s);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+/* A single item spans the full width at the height of two side-by-side squares */
+.module-3-right-top > :only-child {
+    aspect-ratio: auto;
+    height: calc((100cqw - 16px) / 2);
+    object-fit: cover;
+}
+
+.module-3-right-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+
+/* MODULE 4 */
+
+.module-4 {
+    display: flex;
+    gap: 16px;
+}
+
+.module-4-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.module-4-left-top {
+    display: flex;
+    gap: 16px;
+}
+
+.module-4-left-top img,
+.module-4-left-top video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    border-radius: var(--radio-s);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.module-4-left-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.module-4-right {
+    border-radius: var(--radio-l);
+    overflow: hidden;
+    width: 50%;
+}
+
+.module-4-right img,
+.module-4-right video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* MODULE 5 */
+
+.module-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.module-5-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.module-5-top img,
+.module-5-top video {
+    width: calc(25% - 12px);
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radio-s);
+}
+
+.module-5-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+    width: 80%;
+    align-self: center;
+}
+
+/* MODULE 6 */
+
+.module-6 {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.module-6-item {
+    height: 900px;
+    border-radius: var(--radio-s);
+    overflow: hidden;
+}
+
+/* Side by side in a .module-6 row, each item takes half the width */
+.module-6 > .module-6-item {
+    flex: 1 1 0;
+}
+
+/* Modifier: show the whole images (no cropping); the height follows each image */
+.module-6.module-6-fit {
+    align-items: flex-start;
+}
+
+.module-6.module-6-fit .module-6-item,
+.module-6.module-6-fit .module-6-item img {
+    height: auto;
+}
+
+.module-6-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* MODULE 7 */
+
+/* Image the size of .project-video, with module-2 two-column text below */
+.module-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+}
+
+.module-7-media {
+    width: 100%;
+    height: 750px;
+    border-radius: var(--radio-l);
+    overflow: hidden;
+}
+
+.module-7-media img,
+.module-7-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* MODULE 8 */
+
+/* Two vertical images (module-6) above a horizontal one (module-7-media) */
+.module-8 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* MODULE 9 */
+
+/* 2×2 grid of squares on the left, one big square with text below on the right */
+.module-9 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+.module-9-left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-self: start;
+}
+
+.module-9-left img,
+.module-9-left video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radio-s);
+}
+
+.module-9-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.module-9-right-top {
+    border-radius: var(--radio-s);
+    overflow: hidden;
+}
+
+.module-9-right-top img,
+.module-9-right-top video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* PROJECT LINK */
+
+.project-link {
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: var(--radio-l);
+  overflow: hidden;
+  margin: 0px 32px;
+  height: 850px;
+}
+
+.project-link .project-link-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Modifier: show the whole image (no cropping); the height follows the image */
+.project-link.project-link-fit {
+  height: auto;
+  /* Same maximum size the regular project link reaches (1860 × 850) */
+  max-width: 1860px;
+}
+
+.project-link.project-link-fit .project-link-cover {
+  height: auto;
+}
+
+.project-cta-btn-link {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  width: 300px;
+}
+
+/* CREDITS */
+
+.project-credits {
+    border: 2px solid var(--blackish);
+    border-radius: 30px;
+    min-width: 420px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.credits-top {
+    padding: 12px 16px;
+    border: 2px solid var(--blackish);
+    border-radius: 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2px;
+    width: 101%;
+    background-color: var(--greish);
+}
+
+.credits-top p {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+.credits-bottom {
+    align-self: stretch;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.credits-title {
+    font-weight: 500;
+}
+
+/* PROJECT NAVIGATION */
+
+.project-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10vw;
+}
+
+.project-nav-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2.25px solid var(--blackish);
+    /* No top border: the side borders start at the header pill's midline */
+    border-top: 0;
+    border-radius: 0 0 30px 30px;
+    margin-top: 20px;
+    background: var(--greish);
+    text-decoration: none;
+}
+
+.project-nav-header {
+    position: relative;
+    z-index: 1;
+    align-self: stretch;
+    /* Lift the pill by half its height and align its outline with the card's sides */
+    width: auto;
+    margin: -20px -2.25px 0;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--lime);
+    border: 2.25px solid var(--blackish);
+    border-radius: 999px;
+    padding: 0px 24px;
+}
+
+.project-nav-arrow {
+    width: 18px;
+    height: 22px;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.project-nav-arrow-left {
+    transform: rotate(180deg);
+}
+
+.project-nav-card:hover .project-nav-arrow-left {
+    transform: rotate(180deg) translateX(4px);
+}
+
+.project-nav-card:hover .project-nav-arrow:not(.project-nav-arrow-left) {
+    transform: translateX(4px);
+}
+
+.project-nav-body {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px;
+}
+
+.project-nav-info {
+    display: flex;
+    flex-direction: column;
+    /* Title to the top, tags to the bottom, matching the thumbnails' height */
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.project-nav-title {
+    font-family: 'Karoconk', sans-serif;
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.project-nav-thumbs {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto;
+    align-items: center;
+}
+
+.project-nav-thumb {
+  position: relative;
+  width: clamp(80px, 9vw, 160px);
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Absolutely positioned so the media doesn't push the card taller */
+.project-nav-thumb img,
+.project-nav-thumb video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* RESPONSIVE: MOBILE (≤ 768px) */
+
+@media (max-width: 768px) {
+  /* General: 16px side margins, less space between sections */
+  .project-main {
+    padding: 24px 16px 64px;
+    gap: 80px;
+  }
+
+  .project-section {
+    max-width: 100%;
+  }
+
+  /* Hero: title above the description, image below */
+  .project-hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .project-hero-right {
+    width: 100%;
+    gap: 16px;
+  }
+
+  /* Back arrow scaled to the smaller title */
+  .project-hero-left {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-left-arrow img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  .crisis-title {
+    font-size: 48px;
+  }
+
+  .project-hero-bottom {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .project-banner {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-synopsys {
+    width: 100%;
+  }
+
+  .project-video {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  }
+
+  /* Modules: side-by-side layouts stack */
+  .module-1 {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .module-1-left {
+    width: 100%;
+  }
+
+  .module-1-right {
+    width: 100%;
+  }
+
+  .module-2 {
+    gap: 32px;
+  }
+
+  .module-2-bottom,
+  .module-2-bottom:has(> p:only-child) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .module-2-bottom.module-2-flow,
+  .module-2-bottom.module-2-balance {
+    columns: 1;
+  }
+
+  .module-3,
+  .module-4 {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .module-3-left,
+  .module-3-right,
+  .module-4-left,
+  .module-4-right,
+  .module-3-right-bottom,
+  .module-4-left-bottom {
+    width: 100%;
+  }
+
+  .module-3-right,
+  .module-4-left {
+    gap: 24px;
+  }
+
+  .module-5-top img,
+  .module-5-top video {
+    width: calc(50% - 8px);
+  }
+
+  .module-5-bottom {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  /* Module 6: the two tall images stack, each at its own proportions */
+  .module-6 {
+    flex-direction: column;
+  }
+
+  .module-6 > .module-6-item {
+    flex: none;
+  }
+
+  .module-6-item,
+  .module-6-item img {
+    height: auto;
+  }
+
+  .module-7 {
+    gap: 32px;
+  }
+
+  .module-7-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .module-9 {
+    grid-template-columns: 1fr;
+  }
+
+  .module-9-left {
+    gap: 8px;
+  }
+
+  /* Project link: full width, button across the bottom */
+  .project-link {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .project-link.project-link-fit {
+    aspect-ratio: auto;
+  }
+
+  .project-cta-btn-link {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+
+  /* Credits */
+  .project-credits {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* Project navigation: cards stack, content stacks inside each card */
+  .project-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .project-nav-header {
+    padding: 0 16px;
+  }
+
+  .project-nav-body {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+
+  .project-nav-title {
+    font-size: 36px;
+  }
+
+  .project-tags {
+    flex-wrap: wrap;
+  }
+
+  .project-nav-thumb {
+    width: 96px;
+  }
+}

@@ -1,0 +1,113 @@
+/* TYPOGRAPHY */
+
+@font-face {
+  font-family: 'Karoconk';
+  src: url('../../fonts/KaroconK_2.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Título principal */
+
+h1 {
+  font-family: 'Karoconk', sans-serif;
+  font-size: 128px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--blackish);
+}
+
+/* Highlights */
+
+h2 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 350;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: var(--blackish);
+}
+
+/* Space between consecutive heading paragraphs */
+h2 + h2 {
+  margin-top: 1em;
+}
+
+/* Header */
+
+h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--greish);
+}
+
+/* Texto de cuerpo / descripción */
+
+p {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 350;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--blackish);
+}
+
+.body-bold {
+  font-weight: 600;
+}
+
+.body-italic {
+  font-style: italic;
+}
+
+/* Texto pequeño / etiquetas, categorías de proyecto */
+
+.button-s {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--blackish);
+}
+
+.button-m {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--blackish);
+}
+
+.button-l {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--blackish);
+}
+
+/* RESPONSIVE: MOBILE (≤ 768px) */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
