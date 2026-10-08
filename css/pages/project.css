@@ -989,17 +989,25 @@
   }
 
   .project-nav-header {
-    padding: 0 16px;
+    padding: 0 20px;
   }
 
+  /* Title + tags on the left, one square thumbnail on the right */
   .project-nav-body {
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 20px 20px;
+  }
+
+  .project-nav-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 16px;
   }
 
   .project-nav-title {
-    font-size: 36px;
+    font-size: 48px;
   }
 
   .project-tags {
@@ -1007,6 +1015,11 @@
   }
 
   .project-nav-thumb {
-    width: 96px;
+    width: 84px;
+  }
+
+  /* Only the first thumbnail on mobile */
+  .project-nav-thumb + .project-nav-thumb {
+    display: none;
   }
 }
