@@ -306,10 +306,20 @@
     display: none;
   }
 
-  /* Logos span the full width at their own proportions */
+  /* Logos span the full width at their own proportions.
+     Round letters (O, C) overshoot: the straight letters start 9 units
+     (of 271) inside the SVG's top and bottom edges. Pulling each logo in by
+     that amount makes the 12px gaps measure from the straight letters,
+     which is the edge the eye sees. A % margin is a % of the width, so
+     9 / viewBox width gives exactly 9 units at any screen size */
   .main-logo {
     width: 100%;
     height: auto;
+    margin-block: calc(-100% * 9 / 1391); /* KAROLINA: viewBox 1391 × 271 */
+  }
+
+  .main-logo-conk {
+    margin-block: calc(-100% * 9 / 885);  /* CON K: viewBox 885 × 271 */
   }
 
   /* Images fill their grid cell */
