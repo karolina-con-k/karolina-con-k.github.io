@@ -113,7 +113,16 @@
       <!-- FILTERS -->
 
       <div class="section filters-container">
-        <div class="filters">
+        <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filters">
+          <span class="filter-toggle-inner button-l">Filter
+            <svg class="filter-toggle-icon" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 3 Q7 1 12 3 T22 3"/>
+              <path d="M2 9 Q7 7 12 9 T22 9"/>
+              <path d="M2 15 Q7 13 12 15 T22 15"/>
+            </svg>
+          </span>
+        </button>
+        <div class="filters" id="filters">
           <button class="button-m filter-category filter-category-active">All</button>
           <button class="button-m filter-category">Motion Graphics</button>
           <button class="button-m filter-category">UX/UI</button>
@@ -425,5 +434,13 @@
       </div>
     </footer>
 
+    <script>
+      // Mobile: the Filter button shows / hides the categories
+      const filterToggle = document.querySelector('.filter-toggle');
+      filterToggle.addEventListener('click', () => {
+        const open = filterToggle.parentElement.classList.toggle('is-open');
+        filterToggle.setAttribute('aria-expanded', open);
+      });
+    </script>
   </body>
 </html>

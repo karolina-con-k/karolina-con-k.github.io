@@ -110,6 +110,32 @@
   background: var(--white);
 }
 
+/* Mobile-only "Filter" button (shown in the mobile media query below) */
+.filter-toggle {
+  display: none;
+  padding: 8px;
+  border: 2.25px solid var(--blackish);
+  border-radius: 999px;
+  background: var(--white);
+  cursor: pointer;
+}
+
+.filter-toggle-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: var(--blackish);
+  color: var(--greish);
+}
+
+.filter-toggle-icon {
+  width: 24px;
+  height: auto;
+  display: block;
+}
+
 /* PROJECTS */
 
 .projects-container {
@@ -231,57 +257,118 @@
 /* RESPONSIVE: MOBILE (≤ 768px) */
 
 @media (max-width: 768px) {
-  /* Hero: same rows, scaled to the screen width */
+  /* Hero: one grid with the mobile composition, filling the screen
+     between the header and the Filter button.
+     12 columns so rows can split in halves, thirds, or 5 + 7 */
   .hero {
+    --mobile-header: 47px;  /* height of .top-bar on mobile */
+    --mobile-filter: 114px; /* Filter button block below the hero */
+    height: calc(100svh - var(--mobile-header) - var(--mobile-filter));
+    min-height: 560px;
+    padding: 24px 16px 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(64px, 1fr) auto auto minmax(64px, 1fr) minmax(64px, 1fr) minmax(64px, 1fr);
+    grid-template-areas:
+      "a a a a a a b b b b b b"
+      "k k k k k k k k k k k k"
+      "c c c c c c c c c c c c"
+      "t t t t t m m m m m m m"
+      "p p p p p p q q q q q q"
+      "x x x x y y y y z z z z";
+    gap: 8px;
+  }
+
+  /* The rows become invisible so their items sit directly in the grid */
+  .hero-row {
+    display: contents;
+  }
+
+  /* Row 1: KAROLINA + two small images */
+  .hero-row:nth-child(1) > :nth-child(1) { grid-area: k; }
+  .hero-row:nth-child(1) > :nth-child(2) { grid-area: a; }
+  .hero-row:nth-child(1) > :nth-child(3) { grid-area: b; }
+  /* Row 2: CON K + text + image */
+  .hero-row:nth-child(2) > :nth-child(1) { grid-area: c; }
+  .hero-row:nth-child(2) > :nth-child(2) { grid-area: t; }
+  .hero-row:nth-child(2) > :nth-child(3) { grid-area: m; }
+  /* Row 3: five images, split two + three */
+  .hero-row:nth-child(3) > :nth-child(1) { grid-area: p; }
+  .hero-row:nth-child(3) > :nth-child(2) { grid-area: q; }
+  .hero-row:nth-child(3) > :nth-child(3) { grid-area: x; }
+  .hero-row:nth-child(3) > :nth-child(4) { grid-area: y; }
+  .hero-row:nth-child(3) > :nth-child(5) { grid-area: z; }
+
+  /* Logos span the full width at their own proportions */
+  .main-logo {
+    width: 100%;
     height: auto;
-    padding: 32px 16px;
+  }
+
+  /* Images fill their grid cell */
+  .hero-s,
+  .hero-m {
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0;
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  /* Text fills the row's height: first line at the image's top edge,
+     "Find me at Barcelona" at its bottom edge */
+  .hero-row-text {
+    width: auto;
+    padding: 0;
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .hero-row-text h2 {
+    font-size: 18px;
+  }
+
+  .hero-row-text-down {
     gap: 4px;
   }
 
-  .hero-row {
-    --gap: 6px;
-    --row-height: calc((100vw - 32px - 2 * var(--gap)) / 6.84);
+  .hero-row-text-down p {
+    font-size: 12px;
+    white-space: nowrap;
   }
 
-  /* Row 2: the text no longer fits beside the images, so it moves under them */
-  .hero-row:has(.hero-row-text) {
-    flex-wrap: wrap;
-    height: auto;
-    row-gap: 16px;
+  .hero-icon {
+    height: 14px;
+    width: auto;
   }
 
-  .hero-row:has(.hero-row-text) > .main-logo,
-  .hero-row:has(.hero-row-text) > .hero-m {
-    height: var(--row-height);
+  .hero-row-text-down {
+    align-items: center;
   }
 
-  .hero-row-text {
-    order: 3;
-    width: 100%;
-    padding: 0 0 16px;
-    gap: 12px;
-  }
-
-  .hero-s,
-  .hero-m {
-    margin: 2px 0;
-    height: calc(100% - 4px);
-  }
-
-  .hero-row:has(.hero-row-text) > .hero-m {
-    height: calc(var(--row-height) - 4px);
-  }
-
-  /* Filters: one row you can swipe sideways */
+  /* Filters: a single "Filter" button that opens the categories */
   .filters-container {
-    justify-content: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 16px 16px;
   }
 
+  .filter-toggle {
+    display: block;
+  }
+
+  /* Categories hidden until the Filter button is tapped */
   .filters {
+    display: none;
     max-width: 100%;
     overflow-x: auto;
     scrollbar-width: none;
     padding: 8px;
+  }
+
+  .filters-container.is-open .filters {
+    display: flex;
   }
 
   .filters::-webkit-scrollbar {
