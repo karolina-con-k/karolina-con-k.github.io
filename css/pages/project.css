@@ -739,6 +739,11 @@
     display: block;
   }
 
+  /* "See the next project" goes under the descriptions */
+  .project-hero-right .project-cta-btn {
+    order: 1;
+  }
+
   .crisis-title {
     font-size: 48px;
   }
