@@ -809,6 +809,12 @@
     width: 100%;
   }
 
+  /* Modifier (kos): 16px from the sections above and below instead of 80px
+     (the 80px gap of .project-main minus 64px) */
+  .module-8-tight {
+    margin-block: -64px;
+  }
+
   /* Modifier (la crisis): the text goes under the images */
   .module-1-text-last .module-1-left {
     order: 1;
