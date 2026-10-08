@@ -704,10 +704,17 @@
 /* RESPONSIVE: MOBILE (≤ 768px) */
 
 @media (max-width: 768px) {
-  /* General: 16px side margins, less space between sections */
+  /* General: 16px side margins, less space between sections.
+     Bottom padding: the same 82px that separates the credits from the
+     previous/next cards (80px gap + 2px of the card's lifted header) */
   .project-main {
-    padding: 24px 16px 64px;
+    padding: 24px 16px 82px;
     gap: 80px;
+  }
+
+  /* Empty leftover section on some pages; it would add 80px under the cards */
+  .previous-next {
+    display: none;
   }
 
   .project-section {
