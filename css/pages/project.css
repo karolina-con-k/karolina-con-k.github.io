@@ -820,6 +820,11 @@
     margin-top: -64px;
   }
 
+  /* Modifier (hypha): the text goes between the two images */
+  .module-3-text-middle .module-3-right-bottom {
+    order: -1;
+  }
+
   /* Modifier (la crisis): the text goes under the images */
   .module-1-text-last .module-1-left {
     order: 1;
