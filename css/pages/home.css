@@ -418,21 +418,26 @@
     left: 12px;
   }
 
+  /* Thumbnails sit close under the cover */
+  .project-ind {
+    gap: 8px;
+  }
+
   /* Card below the cover, as one grid:
-       tags  tags
+       thumbnails
        title button
        description
-       thumbnails
+       tags
      .project-info and .project-info-middle become invisible so the title
      (in one) and the button (in the other) can share a row */
   .project-ind-bottom {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      "tags   tags"
+      "thumbs thumbs"
       "title  cta"
       "desc   desc"
-      "thumbs thumbs";
+      "tags   tags";
     align-items: center;
     column-gap: 16px;
     row-gap: 16px;
@@ -446,7 +451,7 @@
   .project-tags {
     grid-area: tags;
     flex-wrap: wrap;
-    margin-bottom: 8px;
+    margin-top: 8px;
   }
 
   .project-title-link {
@@ -473,14 +478,17 @@
     display: none;
   }
 
+  /* Pulled up under the title (the title's line box leaves extra space) */
   .project-description {
     grid-area: desc;
     max-width: none;
+    margin-top: -16px;
   }
 
   .project-thumbs {
     grid-area: thumbs;
     gap: 8px;
+    margin-bottom: 8px;
   }
 
   .project-thumb {
