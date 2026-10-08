@@ -769,30 +769,16 @@
     order: 3;
   }
 
-  /* Typography weights on mobile:
-     350 → 400, 500 → 550, 600 → 700, 700 → 750 */
+  /* Typography sizes on mobile (Work Sans only): 16 → 18, 24 → 28 */
   p,
-  h2,
   h3,
-  .footer-text,
-  .footer-right-copyright {
-    font-weight: 400;
-  }
-
-  .credits-title {
-    font-weight: 550;
-  }
-
-  .body-bold,
-  .footer-text-emphasized,
-  .footer-tags,
   .footer-cv-check {
-    font-weight: 700;
+    font-size: 18px;
   }
 
-  .button-s,
-  .credits-top p {
-    font-weight: 750;
+  h2 {
+    font-size: 28px;
+    line-height: 1.2;
   }
 
   .crisis-title {
