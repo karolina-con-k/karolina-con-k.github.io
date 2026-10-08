@@ -815,8 +815,9 @@
     margin-block: -64px;
   }
 
-  /* Modifier (hypha): 16px from the section above instead of 80px */
-  .module-8-tight-top {
+  /* Modifier (any section): 16px from the section above instead of 80px.
+     Used on hypha and buggies */
+  .section-tight-top {
     margin-top: -64px;
   }
 
@@ -924,10 +925,6 @@
 
   .module-9 {
     grid-template-columns: 1fr;
-  }
-
-  .module-9-left {
-    gap: 8px;
   }
 
   /* Project link: full width, button across the bottom */
