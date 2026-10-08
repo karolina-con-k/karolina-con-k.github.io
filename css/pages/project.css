@@ -815,8 +815,9 @@
     margin-block: -64px;
   }
 
-  /* Modifier (hypha): 16px from the section above instead of 80px */
-  .module-8-tight-top {
+  /* Modifier (any section): 16px from the section above instead of 80px.
+     Used on hypha */
+  .section-tight-top {
     margin-top: -64px;
   }
 
