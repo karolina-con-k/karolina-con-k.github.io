@@ -260,7 +260,7 @@
   /* Hero: one grid with the mobile composition. It fills the first screen
      below the header with the content centred vertically; the Filter
      button comes after it, when you scroll.
-     12 columns so rows can split in halves or 5 + 7 */
+     12 columns so rows can split in halves */
   .hero {
     --mobile-header: 47px; /* height of .top-bar on mobile */
     --hero-gap: 12px;     /* every gap between images and the logo */
@@ -276,7 +276,7 @@
       "a a a a a a b b b b b b"
       "k k k k k k k k k k k k"
       "c c c c c c c c c c c c"
-      "t t t t t m m m m m m m"
+      "t t t t t t m m m m m m"
       "p p p p p p q q q q q q";
     align-content: center;
     gap: var(--hero-gap);
@@ -287,22 +287,28 @@
     display: contents;
   }
 
-  /* Row 1: KAROLINA + two images */
+  /* Row 1: KAROLINA + the illustration video (lurk is hidden on mobile) */
   .hero-row:nth-child(1) > :nth-child(1) { grid-area: k; }
   .hero-row:nth-child(1) > :nth-child(2) { grid-area: a; }
-  .hero-row:nth-child(1) > :nth-child(3) { grid-area: b; }
   /* Row 2: CON K + text (the cua image is hidden on mobile) */
   .hero-row:nth-child(2) > :nth-child(1) { grid-area: c; }
   .hero-row:nth-child(2) > :nth-child(2) { grid-area: t; }
-  /* Row 3: kos beside the text, hypha + buggies below */
+  /* Row 3: the retrato goes top right (in lurk's place),
+     kos beside the text, hypha + buggies below */
+  .hero-row:nth-child(3) > :nth-child(3) { grid-area: b; }
   .hero-row:nth-child(3) > :nth-child(2) { grid-area: p; }
   .hero-row:nth-child(3) > :nth-child(4) { grid-area: m; }
   .hero-row:nth-child(3) > :nth-child(5) { grid-area: q; }
 
-  /* Not part of the mobile composition: cua, bonacara, retrato */
+  /* Retrato: frame the upper part so her eyes show in the landscape cell */
+  .hero-row:nth-child(3) > :nth-child(3) img {
+    object-position: center 15%;
+  }
+
+  /* Not part of the mobile composition: lurk, cua, bonacara */
+  .hero-row:nth-child(1) > :nth-child(3),
   .hero-row:nth-child(2) > :nth-child(3),
-  .hero-row:nth-child(3) > :nth-child(1),
-  .hero-row:nth-child(3) > :nth-child(3) {
+  .hero-row:nth-child(3) > :nth-child(1) {
     display: none;
   }
 
@@ -343,7 +349,7 @@
   }
 
   .hero-row-text h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .hero-row-text-down {
@@ -352,7 +358,7 @@
   }
 
   .hero-row-text-down p {
-    font-size: 13px;
+    font-size: 15px;
     white-space: nowrap;
   }
 
