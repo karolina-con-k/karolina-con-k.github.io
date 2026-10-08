@@ -407,9 +407,10 @@
     gap: 80px;
   }
 
+  /* Square cover */
   .project-ind-top {
     height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
   }
 
   .project-badge {
@@ -417,21 +418,43 @@
     left: 12px;
   }
 
+  /* Card below the cover, as one grid:
+       tags  tags
+       title button
+       description
+       thumbnails
+     .project-info and .project-info-middle become invisible so the title
+     (in one) and the button (in the other) can share a row */
   .project-ind-bottom {
-    flex-direction: column;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "tags   tags"
+      "title  cta"
+      "desc   desc"
+      "thumbs thumbs";
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 16px;
   }
 
-  .project-info {
-    gap: 16px;
+  .project-info,
+  .project-info-middle {
+    display: contents;
   }
 
   .project-tags {
+    grid-area: tags;
     flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .project-title-link {
+    grid-area: title;
   }
 
   .project-title {
-    margin: 0 0 -8px;
+    margin: 0;
   }
 
   .title-crisis {
@@ -439,15 +462,24 @@
     margin: 0;
   }
 
-  .project-info-middle {
-    gap: 24px;
+  /* "Want more?" becomes a compact lime pill with just the arrow */
+  .project-info-middle .project-cta-btn {
+    grid-area: cta;
+    width: auto;
+    padding: 8px 18px;
+  }
+
+  .project-info-middle .project-cta-left {
+    display: none;
   }
 
   .project-description {
+    grid-area: desc;
     max-width: none;
   }
 
   .project-thumbs {
+    grid-area: thumbs;
     gap: 8px;
   }
 
