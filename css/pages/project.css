@@ -986,7 +986,7 @@
   .project-nav {
     flex-direction: row;
     align-items: stretch;
-    gap: 12px;
+    gap: 24px;
   }
 
   .project-nav-card {
