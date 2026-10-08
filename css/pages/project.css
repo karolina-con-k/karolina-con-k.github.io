@@ -1018,6 +1018,11 @@
     width: 84px;
   }
 
+  /* Only the first two tags on mobile, so they fit on one row */
+  .project-nav-info .project-tag:nth-child(n + 3) {
+    display: none;
+  }
+
   /* Only the first thumbnail on mobile */
   .project-nav-thumb + .project-nav-thumb {
     display: none;
