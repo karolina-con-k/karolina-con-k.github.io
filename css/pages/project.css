@@ -769,18 +769,6 @@
     order: 3;
   }
 
-  /* Typography sizes on mobile (Work Sans only): 16 → 18, 24 → 28 */
-  p,
-  h3,
-  .footer-cv-check {
-    font-size: 18px;
-  }
-
-  h2 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
   .crisis-title {
     font-size: 48px;
   }

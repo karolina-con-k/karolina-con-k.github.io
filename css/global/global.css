@@ -449,6 +449,10 @@ footer {
     font-size: 14px;
   }
 
+  .footer-cv-check {
+    font-size: 18px;
+  }
+
   .footer-left-tags {
     display: flex;
     flex-wrap: wrap;

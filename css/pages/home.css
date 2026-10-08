@@ -337,8 +337,10 @@
     justify-content: space-between;
   }
 
+  /* Keeps the hero's own size and spacing */
   .hero-row-text h2 {
     font-size: 20px;
+    line-height: 1.1;
   }
 
   .hero-row-text-down {
