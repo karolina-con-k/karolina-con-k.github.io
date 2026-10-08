@@ -263,8 +263,9 @@
      12 columns so rows can split in halves or 5 + 7 */
   .hero {
     --mobile-header: 47px; /* height of .top-bar on mobile */
-    /* Image rows: half the width at a 1.46 : 1 landscape shape */
-    --hero-img-row: calc((100vw - 32px - 8px) / 2 / 1.46);
+    --hero-gap: 12px;     /* every gap between images and the logo */
+    /* Image rows: half the width (minus one gap) at a 1.46 : 1 landscape shape */
+    --hero-img-row: calc((100vw - 32px - var(--hero-gap)) / 2 / 1.46);
     height: auto;
     min-height: calc(100svh - var(--mobile-header));
     padding: 24px 16px;
@@ -278,7 +279,7 @@
       "t t t t t m m m m m m m"
       "p p p p p p q q q q q q";
     align-content: center;
-    gap: 8px;
+    gap: var(--hero-gap);
   }
 
   /* The rows become invisible so their items sit directly in the grid */
