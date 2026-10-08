@@ -118,8 +118,11 @@
   display: none;
 }
 
+/* Drawn "+" next to FILTER, the same stroke as the sheet's "×" */
 .filter-toggle-plus {
-  margin-left: 8px;
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
 }
 
 /* PROJECTS */
@@ -369,7 +372,8 @@
   }
 
   .filter-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   /* Dimmed page behind the sheet */
