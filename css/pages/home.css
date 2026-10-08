@@ -110,9 +110,11 @@
   background: var(--white);
 }
 
-/* Mobile-only "Filter +" button. It is a .filter-category, so it shares
-   the categories' typography and pill style; hidden on desktop */
-.filter-toggle {
+/* Mobile-only parts of the filters (shown in the mobile media query below):
+   the "Filter +" button, the dimmed background and the sheet's header */
+.filter-toggle-wrap,
+.filters-backdrop,
+.filters-sheet-header {
   display: none;
 }
 
@@ -351,51 +353,112 @@
     width: auto;
   }
 
-  /* Filters: one container. Closed it only holds "Filter +"; tapping it
-     expands the container, hides "Filter +" and shows the categories */
+  /* Filters: "Filter +" button in the page; tapping it dims the page and
+     slides the categories up from the bottom as a sheet */
   .filters-container {
     padding: 16px 16px 0;
   }
 
-  .filters {
-    max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
+  /* "Filter +" in the same outlined white pill as the desktop bar */
+  .filter-toggle-wrap {
+    display: block;
     padding: 8px;
-    /* Lets the width animate between its closed and open size
-       (Chrome / Edge; other browsers open instantly) */
-    interpolate-size: allow-keywords;
-    transition: width 0.4s ease;
-  }
-
-  .filters::-webkit-scrollbar {
-    display: none;
+    border: 2.25px solid var(--blackish);
+    border-radius: 999px;
+    background: var(--white);
   }
 
   .filter-toggle {
     display: block;
   }
 
-  /* Closed: only "Filter +" */
-  .filters:not(.is-open) .filter-category:not(.filter-toggle) {
-    display: none;
+  /* Dimmed page behind the sheet */
+  .filters-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(36, 34, 32, 0.4); /* --blackish at 40% */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
   }
 
-  /* Open: the container widens to the full row */
-  .filters.is-open {
+  .filters-container.is-open .filters-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* The sheet: hidden below the screen until opened */
+  .filters {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    width: auto;
+    max-height: 85svh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 12px 8px;
+    padding: 0 24px calc(32px + env(safe-area-inset-bottom));
+    background: var(--white);
+    border: 2.25px solid var(--blackish);
+    border-bottom: 0;
+    border-radius: 30px 30px 0 0;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0s 0.4s;
+  }
+
+  .filters-container.is-open .filters {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+  }
+
+  /* "FILTER  ×" with a line underneath across the whole sheet */
+  .filters-sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Full sheet width: the content width plus the 24px side paddings */
+    flex-basis: calc(100% + 48px);
+    margin: 0 -24px 12px;
+    padding: 20px 24px;
+    border-bottom: 2.25px solid var(--blackish);
+  }
+
+  .filters-sheet-header .button-l {
+    font-size: 20px;
+  }
+
+  .filters-close {
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    margin-right: -8px;
+    background: none;
+    border: 0;
+    color: var(--blackish);
+    cursor: pointer;
+  }
+
+  .filters-close svg {
+    display: block;
     width: 100%;
+    height: 100%;
   }
 
-  /* Open: "Filter +" disappears, the categories fade in */
-  .filters.is-open .filter-toggle {
-    display: none;
+  /* No page scrolling behind the open sheet */
+  html.filters-open {
+    overflow: hidden;
   }
 
-  .filters.is-open .filter-category {
-    animation: filters-in 0.35s ease both;
-  }
-
-  /* Keep each button its full width; the row scrolls instead */
+  /* Keep each button its full width; rows wrap */
   .filter-category {
     flex: 0 0 auto;
   }
@@ -496,9 +559,4 @@
     width: auto;
     aspect-ratio: 1 / 1;
   }
-}
-
-@keyframes filters-in {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: none; }
 }

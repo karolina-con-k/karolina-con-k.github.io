@@ -113,8 +113,19 @@
       <!-- FILTERS -->
 
       <div class="section filters-container">
-        <div class="filters" id="filters">
+        <!-- Mobile only: "Filter +" opens the categories as a bottom sheet -->
+        <div class="filter-toggle-wrap">
           <button class="button-m filter-category filter-toggle" type="button" aria-expanded="false" aria-controls="filters">Filter <span class="filter-toggle-plus" aria-hidden="true">+</span></button>
+        </div>
+        <div class="filters-backdrop"></div>
+
+        <div class="filters" id="filters">
+          <div class="filters-sheet-header">
+            <p class="button-l">Filter</p>
+            <button class="filters-close" type="button" aria-label="Close filters">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"/></svg>
+            </button>
+          </div>
           <button class="button-m filter-category filter-category-active">All</button>
           <button class="button-m filter-category">Motion Graphics</button>
           <button class="button-m filter-category">UX/UI</button>
@@ -427,11 +438,20 @@
     </footer>
 
     <script>
-      // Mobile: tapping "Filter +" opens the container and shows the categories
+      // Mobile: "Filter +" slides the categories up from the bottom of the
+      // screen and dims the page; the ×, the dimmed page or Esc close it
+      const filtersContainer = document.querySelector('.filters-container');
       const filterToggle = document.querySelector('.filter-toggle');
-      filterToggle.addEventListener('click', () => {
-        filterToggle.parentElement.classList.add('is-open');
-        filterToggle.setAttribute('aria-expanded', 'true');
+      const setFiltersOpen = (open) => {
+        filtersContainer.classList.toggle('is-open', open);
+        document.documentElement.classList.toggle('filters-open', open);
+        filterToggle.setAttribute('aria-expanded', open);
+      };
+      filterToggle.addEventListener('click', () => setFiltersOpen(true));
+      document.querySelector('.filters-close').addEventListener('click', () => setFiltersOpen(false));
+      document.querySelector('.filters-backdrop').addEventListener('click', () => setFiltersOpen(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setFiltersOpen(false);
       });
     </script>
   </body>
