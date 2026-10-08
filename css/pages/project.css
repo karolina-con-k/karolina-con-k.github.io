@@ -809,6 +809,11 @@
     width: 100%;
   }
 
+  /* Modifier (numen): the two bottom images stack instead of sitting side by side */
+  .module-1-stack .module-1-right-bottom {
+    flex-direction: column;
+  }
+
   .module-2 {
     gap: 32px;
   }
