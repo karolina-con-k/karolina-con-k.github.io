@@ -925,6 +925,15 @@
     aspect-ratio: auto;
   }
 
+  /* Modifier (kos): on mobile show the whole horizontal image, no cropping */
+  .project-link.project-link-fit-mobile {
+    aspect-ratio: auto;
+  }
+
+  .project-link.project-link-fit-mobile .project-link-cover {
+    height: auto;
+  }
+
   .project-cta-btn-link {
     left: 16px;
     right: 16px;
