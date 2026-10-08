@@ -942,6 +942,11 @@
     margin-bottom: 8px;
   }
 
+  /* Same 16px between all five images (the grid had 8px) */
+  .module-9-text-first .module-9-left {
+    gap: 16px;
+  }
+
   /* Project link: full width, button across the bottom */
   .project-link {
     margin: 0;
