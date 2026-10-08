@@ -930,6 +930,18 @@
     gap: 8px;
   }
 
+  /* Modifier (buggies): the text goes first, above all five images.
+     The right column becomes invisible so its text can move before
+     the 2×2 grid */
+  .module-9-text-first .module-9-right {
+    display: contents;
+  }
+
+  .module-9-text-first .module-9-right > p {
+    order: -1;
+    margin-bottom: 8px;
+  }
+
   /* Project link: full width, button across the bottom */
   .project-link {
     margin: 0;
