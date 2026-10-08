@@ -739,9 +739,60 @@
     display: block;
   }
 
-  /* "See the next project" goes under the descriptions */
-  .project-hero-right .project-cta-btn {
+  /* Hero order: title, descriptions, image, then "See the next project".
+     The two hero columns become invisible so their contents can be
+     reordered around the image */
+  .project-hero {
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .project-hero-top,
+  .project-hero-right {
+    display: contents;
+  }
+
+  .project-hero-left {
+    margin-bottom: 8px;
+  }
+
+  .project-hero-right > p {
     order: 1;
+  }
+
+  .project-hero-bottom {
+    order: 2;
+    margin-top: 8px;
+  }
+
+  .project-hero-right .project-cta-btn {
+    order: 3;
+  }
+
+  /* Typography weights on mobile:
+     350 → 400, 500 → 550, 600 → 700, 700 → 750 */
+  p,
+  h2,
+  h3,
+  .footer-text,
+  .footer-right-copyright {
+    font-weight: 400;
+  }
+
+  .credits-title {
+    font-weight: 550;
+  }
+
+  .body-bold,
+  .footer-text-emphasized,
+  .footer-tags,
+  .footer-cv-check {
+    font-weight: 700;
+  }
+
+  .button-s,
+  .credits-top p {
+    font-weight: 750;
   }
 
   .crisis-title {
