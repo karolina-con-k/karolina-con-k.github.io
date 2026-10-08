@@ -257,25 +257,27 @@
 /* RESPONSIVE: MOBILE (≤ 768px) */
 
 @media (max-width: 768px) {
-  /* Hero: one grid with the mobile composition, filling the screen
-     between the header and the Filter button.
-     12 columns so rows can split in halves, thirds, or 5 + 7 */
+  /* Hero: one grid with the mobile composition. It fills the first screen
+     below the header with the content centred vertically; the Filter
+     button comes after it, when you scroll.
+     12 columns so rows can split in halves or 5 + 7 */
   .hero {
-    --mobile-header: 47px;  /* height of .top-bar on mobile */
-    --mobile-filter: 114px; /* Filter button block below the hero */
-    height: calc(100svh - var(--mobile-header) - var(--mobile-filter));
-    min-height: 560px;
-    padding: 24px 16px 0;
+    --mobile-header: 47px; /* height of .top-bar on mobile */
+    /* Image rows: half the width at a 1.46 : 1 landscape shape */
+    --hero-img-row: calc((100vw - 32px - 8px) / 2 / 1.46);
+    height: auto;
+    min-height: calc(100svh - var(--mobile-header));
+    padding: 24px 16px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: minmax(64px, 1fr) auto auto minmax(64px, 1fr) minmax(64px, 1fr) minmax(64px, 1fr);
+    grid-template-rows: var(--hero-img-row) auto auto var(--hero-img-row) var(--hero-img-row);
     grid-template-areas:
       "a a a a a a b b b b b b"
       "k k k k k k k k k k k k"
       "c c c c c c c c c c c c"
       "t t t t t m m m m m m m"
-      "p p p p p p q q q q q q"
-      "x x x x y y y y z z z z";
+      "p p p p p p q q q q q q";
+    align-content: center;
     gap: 8px;
   }
 
@@ -284,20 +286,24 @@
     display: contents;
   }
 
-  /* Row 1: KAROLINA + two small images */
+  /* Row 1: KAROLINA + two images */
   .hero-row:nth-child(1) > :nth-child(1) { grid-area: k; }
   .hero-row:nth-child(1) > :nth-child(2) { grid-area: a; }
   .hero-row:nth-child(1) > :nth-child(3) { grid-area: b; }
-  /* Row 2: CON K + text + image */
+  /* Row 2: CON K + text (the cua image is hidden on mobile) */
   .hero-row:nth-child(2) > :nth-child(1) { grid-area: c; }
   .hero-row:nth-child(2) > :nth-child(2) { grid-area: t; }
-  .hero-row:nth-child(2) > :nth-child(3) { grid-area: m; }
-  /* Row 3: five images, split two + three */
-  .hero-row:nth-child(3) > :nth-child(1) { grid-area: p; }
-  .hero-row:nth-child(3) > :nth-child(2) { grid-area: q; }
-  .hero-row:nth-child(3) > :nth-child(3) { grid-area: x; }
-  .hero-row:nth-child(3) > :nth-child(4) { grid-area: y; }
-  .hero-row:nth-child(3) > :nth-child(5) { grid-area: z; }
+  /* Row 3: kos beside the text, hypha + buggies below */
+  .hero-row:nth-child(3) > :nth-child(2) { grid-area: p; }
+  .hero-row:nth-child(3) > :nth-child(4) { grid-area: m; }
+  .hero-row:nth-child(3) > :nth-child(5) { grid-area: q; }
+
+  /* Not part of the mobile composition: cua, bonacara, retrato */
+  .hero-row:nth-child(2) > :nth-child(3),
+  .hero-row:nth-child(3) > :nth-child(1),
+  .hero-row:nth-child(3) > :nth-child(3) {
+    display: none;
+  }
 
   /* Logos span the full width at their own proportions */
   .main-logo {
@@ -331,10 +337,11 @@
 
   .hero-row-text-down {
     gap: 4px;
+    align-items: center;
   }
 
   .hero-row-text-down p {
-    font-size: 12px;
+    font-size: 13px;
     white-space: nowrap;
   }
 
@@ -343,15 +350,11 @@
     width: auto;
   }
 
-  .hero-row-text-down {
-    align-items: center;
-  }
-
   /* Filters: a single "Filter" button that opens the categories */
   .filters-container {
     flex-direction: column;
     gap: 12px;
-    padding: 32px 16px 16px;
+    padding: 16px 16px 0;
   }
 
   .filter-toggle {
