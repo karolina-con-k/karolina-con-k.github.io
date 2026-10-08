@@ -820,9 +820,16 @@
     margin-top: -64px;
   }
 
-  /* Modifier (hypha): the text goes between the two images */
-  .module-3-text-middle .module-3-right-bottom {
+  /* Modifier (hypha): the text goes first, above both images.
+     The right column becomes invisible so its text can move before the
+     video in the left column */
+  .module-3-text-first .module-3-right {
+    display: contents;
+  }
+
+  .module-3-text-first .module-3-right-bottom {
     order: -1;
+    margin-bottom: 8px;
   }
 
   /* Modifier (la crisis): the text goes under the images */
