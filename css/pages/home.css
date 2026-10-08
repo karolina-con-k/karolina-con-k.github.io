@@ -110,30 +110,14 @@
   background: var(--white);
 }
 
-/* Mobile-only "Filter" button (shown in the mobile media query below) */
+/* Mobile-only "Filter +" button. It is a .filter-category, so it shares
+   the categories' typography and pill style; hidden on desktop */
 .filter-toggle {
   display: none;
-  padding: 8px;
-  border: 2.25px solid var(--blackish);
-  border-radius: 999px;
-  background: var(--white);
-  cursor: pointer;
 }
 
-.filter-toggle-inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 28px;
-  border-radius: 999px;
-  background: var(--blackish);
-  color: var(--greish);
-}
-
-.filter-toggle-icon {
-  width: 24px;
-  height: auto;
-  display: block;
+.filter-toggle-plus {
+  margin-left: 8px;
 }
 
 /* PROJECTS */
@@ -367,32 +351,48 @@
     width: auto;
   }
 
-  /* Filters: a single "Filter" button that opens the categories */
+  /* Filters: one container. Closed it only holds "Filter +"; tapping it
+     expands the container, hides "Filter +" and shows the categories */
   .filters-container {
-    flex-direction: column;
-    gap: 12px;
     padding: 16px 16px 0;
+  }
+
+  .filters {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 8px;
+    /* Lets the width animate between its closed and open size
+       (Chrome / Edge; other browsers open instantly) */
+    interpolate-size: allow-keywords;
+    transition: width 0.4s ease;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-toggle {
     display: block;
   }
 
-  /* Categories hidden until the Filter button is tapped */
-  .filters {
+  /* Closed: only "Filter +" */
+  .filters:not(.is-open) .filter-category:not(.filter-toggle) {
     display: none;
-    max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding: 8px;
   }
 
-  .filters-container.is-open .filters {
-    display: flex;
+  /* Open: the container widens to the full row */
+  .filters.is-open {
+    width: 100%;
   }
 
-  .filters::-webkit-scrollbar {
+  /* Open: "Filter +" disappears, the categories fade in */
+  .filters.is-open .filter-toggle {
     display: none;
+  }
+
+  .filters.is-open .filter-category {
+    animation: filters-in 0.35s ease both;
   }
 
   /* Keep each button its full width; the row scrolls instead */
@@ -496,4 +496,9 @@
     width: auto;
     aspect-ratio: 1 / 1;
   }
+}
+
+@keyframes filters-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
 }
