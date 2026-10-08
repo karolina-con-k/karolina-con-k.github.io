@@ -1011,7 +1011,7 @@
     flex-direction: column;
     align-items: stretch;
     flex: 1 1 auto;
-    gap: 12px;
+    gap: 8px;
     padding: 16px 12px 12px;
   }
 
@@ -1039,7 +1039,7 @@
 
   .project-nav-thumb {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 
   .project-nav-thumb + .project-nav-thumb {
