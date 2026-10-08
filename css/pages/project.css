@@ -813,6 +813,16 @@
     gap: 32px;
   }
 
+  /* Big phrase fills the width: ignore the desktop line breaks and
+     the balanced (shorter) lines */
+  .module-2-top {
+    text-wrap: wrap;
+  }
+
+  .module-2-top br {
+    display: none;
+  }
+
   .module-2-bottom,
   .module-2-bottom:has(> p:only-child) {
     grid-template-columns: 1fr;
