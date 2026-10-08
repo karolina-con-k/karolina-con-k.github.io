@@ -985,7 +985,7 @@
   .project-nav {
     flex-direction: column;
     align-items: stretch;
-    gap: 48px;
+    gap: 24px;
   }
 
   .project-nav-header {
@@ -996,7 +996,7 @@
   .project-nav-body {
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     padding: 24px 20px 20px;
   }
 
@@ -1008,6 +1008,11 @@
 
   .project-nav-title {
     font-size: 48px;
+  }
+
+  /* La Crisis de los 20's: smaller so the title fits on two lines */
+  .project-nav-card[href="la-crisis-de-los-20s.html"] .project-nav-title {
+    font-size: 40px;
   }
 
   .project-tags {
