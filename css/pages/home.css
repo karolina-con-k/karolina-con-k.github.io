@@ -653,13 +653,17 @@ html.no-intro .filters-container {
   .hero-row:nth-child(3) > :nth-child(4) { --intro-step: 5; }
   .hero-row:nth-child(3) > :nth-child(5) { --intro-step: 6; }
 
-  /* 4. Top bar from above and filter bar from below, together */
+  /* 4. Top bar from above and filter bar from below, together.
+     "backwards" (not "both"): once finished, the animation lets go of the
+     element. Holding its last step would make the filter bar the frame of
+     reference for the mobile filter sheet and its dimmed background, so
+     they'd open inside the bar instead of over the whole screen */
   .top-bar {
-    animation: intro-from-above 0.9s var(--intro-ease-out) 2.1s both;
+    animation: intro-from-above 0.9s var(--intro-ease-out) 2.1s backwards;
   }
 
   .filters-container {
-    animation: intro-from-below 0.9s var(--intro-ease-out) 2.1s both;
+    animation: intro-from-below 0.9s var(--intro-ease-out) 2.1s backwards;
   }
 }
 
