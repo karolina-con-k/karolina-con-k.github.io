@@ -14,14 +14,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
     <title>Home Page</title>
-    <!-- Intro animation plays once per visit: later visits to the home page
-         (e.g. coming back from a project) skip it -->
-    <script>
-      try {
-        if (sessionStorage.getItem('introSeen')) document.documentElement.classList.add('no-intro');
-        sessionStorage.setItem('introSeen', '1');
-      } catch (e) {}
-    </script>
   </head>
   <body>
 
