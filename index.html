@@ -14,6 +14,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
     <title>Home Page</title>
+    <!-- Intro animation: plays when you arrive at the site or reload, but not
+         when you come back from one of your own pages (a project link or
+         the browser's back button) -->
+    <script>
+      try {
+        const nav = performance.getEntriesByType('navigation')[0];
+        const type = nav ? nav.type : 'navigate';
+        let fromThisSite = false;
+        try { fromThisSite = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+        if (type === 'back_forward' || (type === 'navigate' && fromThisSite)) {
+          document.documentElement.classList.add('no-intro');
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
 

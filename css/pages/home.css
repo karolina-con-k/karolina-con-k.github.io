@@ -600,7 +600,17 @@
    4. ~2.1s     the top bar slides down and the filter bar rises up,
                 at the same time
 
-   "Reduce motion" turns it off */
+   "Reduce motion" turns it off, and so does the .no-intro class, which
+   index.html's <head> adds when you come back from one of your own pages */
+
+html.no-intro .hero .logo-letter,
+html.no-intro .hero-s,
+html.no-intro .hero-m,
+html.no-intro .hero-row-text,
+html.no-intro .top-bar,
+html.no-intro .filters-container {
+  animation: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
