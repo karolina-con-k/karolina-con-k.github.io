@@ -141,6 +141,27 @@
   gap: 16px;
 }
 
+/* Projects hidden by the filters */
+.project-ind[hidden] {
+  display: none;
+}
+
+/* Projects that stay visible fade in when a filter is chosen */
+.project-ind:not([hidden]) {
+  animation: project-in 0.4s ease both;
+}
+
+@keyframes project-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-ind:not([hidden]) {
+    animation: none;
+  }
+}
+
 .project-ind-top {
   display: block;
   position: relative;

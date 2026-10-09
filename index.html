@@ -455,6 +455,34 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') setFiltersOpen(false);
       });
+
+      // Filters: tapping a category shows only the projects that have that
+      // tag ("All" shows every project). Each project's tags are read from
+      // its own tag pills, so new projects or changed tags work automatically
+      const categoryButtons = document.querySelectorAll('.filter-category:not(.filter-toggle)');
+      const projects = document.querySelectorAll('.project-ind');
+      const normalise = (text) => text.trim().toLowerCase();
+
+      categoryButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', button.classList.contains('filter-category-active'));
+        button.addEventListener('click', () => {
+          const category = normalise(button.textContent);
+
+          categoryButtons.forEach((b) => {
+            const active = b === button;
+            b.classList.toggle('filter-category-active', active);
+            b.setAttribute('aria-pressed', active);
+          });
+
+          projects.forEach((project) => {
+            const tags = [...project.querySelectorAll('.project-tag')].map((tag) => normalise(tag.textContent));
+            project.hidden = category !== 'all' && !tags.includes(category);
+          });
+
+          // Mobile: close the sheet so the filtered projects are visible
+          setFiltersOpen(false);
+        });
+      });
     </script>
   </body>
 </html>
