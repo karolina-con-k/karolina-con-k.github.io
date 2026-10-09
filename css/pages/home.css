@@ -593,10 +593,12 @@
 /* INTRO ANIMATION (home only, every time the page loads)
 
    Based on wearetheromans.com's "bye bye boring" intro:
-   1. 0–1.75s   KAROLINA and CON K fly in from the left as a squashed,
-                slanted sliver, land as a thin line, then spring open
-   2. ~1.5s     the images open from their centre and straighten up
-   3. ~2.3s     the top bar slides down and the filter bar rises up
+   1. 0–1.2s    KAROLINA rises letter by letter from below its own box
+   2. ~0.6s     then CON K, the same way
+   3. ~1.3s     the images open from their centre and straighten up,
+                and the text rises in
+   4. ~2.1s     the top bar slides down and the filter bar rises up,
+                at the same time
 
    "Reduce motion" turns it off */
 
@@ -606,21 +608,32 @@
     --intro-ease-in-out: cubic-bezier(0.9, 0, 0.1, 1);
   }
 
-  /* 1. Logo */
+  /* 1–2. Logo, letter by letter. Each letter starts one logo-height
+     below its place; the logo's box hides it until it rises in */
   .hero .main-logo {
-    animation: intro-logo 1.75s both;
+    overflow: hidden;
+    --logo-start: 0.1s;
+  }
+
+  .hero .main-logo-conk {
+    --logo-start: 0.6s;
+  }
+
+  .hero .logo-letter {
+    animation: intro-letter 0.7s var(--intro-ease-out) both;
+    animation-delay: calc(var(--logo-start) + var(--i) * 0.06s);
   }
 
   /* 2. Images and text, row by row */
   .hero-s,
   .hero-m {
     animation: intro-image 1s var(--intro-ease-in-out) both;
-    animation-delay: calc(1.5s + var(--intro-step, 0) * 0.08s);
+    animation-delay: calc(1.3s + var(--intro-step, 0) * 0.08s);
   }
 
   .hero-row-text {
     animation: intro-text 0.8s var(--intro-ease-out) both;
-    animation-delay: 1.8s;
+    animation-delay: 1.6s;
   }
 
   .hero-row:nth-child(2) > * { --intro-step: 1; }
@@ -630,28 +643,19 @@
   .hero-row:nth-child(3) > :nth-child(4) { --intro-step: 5; }
   .hero-row:nth-child(3) > :nth-child(5) { --intro-step: 6; }
 
-  /* 3. Top bar from above, filter bar from below */
+  /* 4. Top bar from above and filter bar from below, together */
   .top-bar {
-    animation: intro-from-above 0.9s var(--intro-ease-out) 2.3s both;
+    animation: intro-from-above 0.9s var(--intro-ease-out) 2.1s both;
   }
 
   .filters-container {
-    animation: intro-from-below 0.9s var(--intro-ease-out) 2.4s both;
+    animation: intro-from-below 0.9s var(--intro-ease-out) 2.1s both;
   }
 }
 
-@keyframes intro-logo {
-  0% {
-    transform: translateX(-100vw) scale(0.5, 0.15) skewX(-10deg);
-    animation-timing-function: cubic-bezier(0.14, 1, 0.34, 1);
-  }
-  43% {
-    transform: translateX(0) scale(0.1, 0.15) skewX(-10deg);
-    animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
-  }
-  100% {
-    transform: none;
-  }
+@keyframes intro-letter {
+  from { transform: translateY(100%); }
+  to   { transform: none; }
 }
 
 @keyframes intro-image {
