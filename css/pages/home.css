@@ -146,21 +146,22 @@
   display: none;
 }
 
-/* Projects that stay visible fade in when a filter is chosen */
-.project-ind:not([hidden]) {
-  animation: project-in 0.4s ease both;
+/* Choosing a filter fades all the projects out and back in */
+.projects-container {
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-@keyframes project-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: none; }
+.projects-container.is-fading {
+  opacity: 0;
+  transform: translateY(12px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-ind:not([hidden]) {
-    animation: none;
+  .projects-container {
+    transition: none;
   }
 }
+
 
 .project-ind-top {
   display: block;

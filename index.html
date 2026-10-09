@@ -157,7 +157,7 @@
             <div class="project-info">
               <div class="project-tags">
                 <span class="project-tag button-s">UX/UI</span>
-                <span class="project-tag button-s">Typography</span>
+                <span class="project-tag button-s">Art Direction</span>
                 <span class="project-tag button-s">Motion Graphics</span>
               </div>
               <a href="numen.html" class="project-title-link">
@@ -202,7 +202,7 @@
             <div class="project-info">
               <div class="project-tags">
                 <span class="project-tag button-s">Illustration</span>
-                <span class="project-tag button-s">Branding</span>
+                <span class="project-tag button-s">Art Direction</span>
                 <span class="project-tag button-s">Packaging</span>
               </div>
               <a href="#" class="project-title-link">
@@ -353,7 +353,7 @@
               <div class="project-tags">
                 <span class="project-tag button-s">Packaging</span>
                 <span class="project-tag button-s">Branding</span>
-                <span class="project-tag button-s">Art Direction</span>
+                <span class="project-tag button-s">Illustration</span>
               </div>
               <a href="buggies.html" class="project-title-link">
                 <h1 class="project-title">buggies</h1>
@@ -461,6 +461,8 @@
       // its own tag pills, so new projects or changed tags work automatically
       const categoryButtons = document.querySelectorAll('.filter-category:not(.filter-toggle)');
       const projects = document.querySelectorAll('.project-ind');
+      const projectsContainer = document.querySelector('.projects-container');
+      let fadeTimer;
       const normalise = (text) => text.trim().toLowerCase();
 
       categoryButtons.forEach((button) => {
@@ -474,10 +476,17 @@
             b.setAttribute('aria-pressed', active);
           });
 
-          projects.forEach((project) => {
-            const tags = [...project.querySelectorAll('.project-tag')].map((tag) => normalise(tag.textContent));
-            project.hidden = category !== 'all' && !tags.includes(category);
-          });
+          // Fade the projects out, swap which ones are shown, fade back in,
+          // so it's clear the list has reloaded
+          projectsContainer.classList.add('is-fading');
+          clearTimeout(fadeTimer);
+          fadeTimer = setTimeout(() => {
+            projects.forEach((project) => {
+              const tags = [...project.querySelectorAll('.project-tag')].map((tag) => normalise(tag.textContent));
+              project.hidden = category !== 'all' && !tags.includes(category);
+            });
+            projectsContainer.classList.remove('is-fading');
+          }, 250);
 
           // Mobile: close the sheet so the filtered projects are visible
           setFiltersOpen(false);
