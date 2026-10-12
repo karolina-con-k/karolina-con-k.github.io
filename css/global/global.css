@@ -243,6 +243,9 @@ body {
 
 .header-ig {
   height: 18px;
+  /* Same distance from "CV" as "CV" has from the language (whose button
+     adds 5px of padding) */
+  margin-left: 5px;
 }
 
 /* "CV" in the top bar: text in the same type as the language switcher */
