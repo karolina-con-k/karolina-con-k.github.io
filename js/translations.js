@@ -23,7 +23,7 @@ window.TRANSLATIONS = [
     ca: `Mai definitiu, <br>però sempre millor` },
 
   { en: `Find me at Barcelona`,
-    es: `Encuéntrame en Barcelona`,
+    es: `Desde Barcelona`,
     ca: `Troba'm a Barcelona` },
 
   { en: `Filter`,
