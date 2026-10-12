@@ -38,6 +38,14 @@
   overflow: hidden;
 }
 
+/* Row 1 has no flexible image, so it fell ~14px short of rows 2 and 3:
+   its two images share whatever space is left so all rows end together */
+.hero-row:first-child > .hero-s {
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: auto;
+}
+
 .hero-s video,
 .hero-s img {
   width: 100%;
