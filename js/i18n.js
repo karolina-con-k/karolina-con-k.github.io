@@ -66,8 +66,27 @@
     return 'en';
   }
 
-  document.querySelectorAll('.lang-switch button').forEach((button) => {
-    button.addEventListener('click', () => setLanguage(button.dataset.lang));
+  // Tapping the current language opens / closes the switcher (for touch
+  // screens, where there's no hover). Tapping another one picks it and closes
+  document.querySelectorAll('.lang-switch').forEach((switcher) => {
+    switcher.querySelectorAll('button').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (button.getAttribute('aria-pressed') === 'true') {
+          switcher.classList.toggle('is-open');
+        } else {
+          setLanguage(button.dataset.lang);
+          switcher.classList.remove('is-open');
+          button.blur();
+        }
+      });
+    });
+  });
+
+  // Tapping anywhere else closes it
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.lang-switch.is-open').forEach((switcher) => {
+      if (!switcher.contains(e.target)) switcher.classList.remove('is-open');
+    });
   });
 
   setLanguage(initialLanguage());

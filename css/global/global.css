@@ -155,30 +155,90 @@ body {
   display: block;
 }
 
-/* Language switcher: EN · ES · CAT, the current one at full strength */
+/* Language switcher. Closed: only the current language, the size of "CV".
+   Hover (or tap on mobile): it opens to the left with a lime dot, the
+   current language first and the other two faded, to pick one */
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 2px;
 }
 
 .lang-switch button {
-  padding: 4px 6px;
+  display: block;
+  max-width: 0;
+  padding: 4px 0;
+  overflow: hidden;
   border: 0;
   background: none;
   font-family: 'Work Sans', sans-serif;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 1;
   letter-spacing: 0.01em;
   color: var(--greish);
-  opacity: 0.45;
+  white-space: nowrap;
+  opacity: 0;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: max-width 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
 }
 
-.lang-switch button:hover,
+/* The current language: always visible, first in the row */
 .lang-switch button[aria-pressed="true"] {
+  order: -1;
+  max-width: 4em;
+  padding: 4px 5px;
   opacity: 1;
+}
+
+/* Lime dot before the current language, only while open */
+.lang-switch button[aria-pressed="true"]::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 6px;
+  margin-right: 0;
+  border-radius: 50%;
+  background: var(--lime);
+  vertical-align: middle;
+  transition: width 0.35s ease, margin 0.35s ease;
+}
+
+/* Open: after a tap or click (.is-open), when navigating with the keyboard,
+   or on hover with a mouse (not on touch screens, where hover can "stick") */
+.lang-switch.is-open button,
+.lang-switch:has(:focus-visible) button {
+  max-width: 4em;
+  padding: 4px 5px;
+  opacity: 0.45;
+}
+
+.lang-switch.is-open button[aria-pressed="true"],
+.lang-switch:has(:focus-visible) button[aria-pressed="true"] {
+  opacity: 1;
+}
+
+.lang-switch.is-open button[aria-pressed="true"]::before,
+.lang-switch:has(:focus-visible) button[aria-pressed="true"]::before {
+  width: 6px;
+  margin-right: 5px;
+}
+
+@media (hover: hover) {
+  .lang-switch:hover button {
+    max-width: 4em;
+    padding: 4px 5px;
+    opacity: 0.45;
+  }
+
+  .lang-switch:hover button[aria-pressed="true"],
+  .lang-switch:hover button:hover {
+    opacity: 1;
+  }
+
+  .lang-switch:hover button[aria-pressed="true"]::before {
+    width: 6px;
+    margin-right: 5px;
+  }
 }
 
 .header-ig {
@@ -446,11 +506,24 @@ footer {
 
   .top-bar-right {
     gap: 10px;
+    flex-shrink: 0;
+  }
+
+  /* No room for both: while the language switcher is open, the greeting
+     fades out and the switcher opens over its space */
+  .top-bar-left {
+    min-width: 0;
+    overflow: hidden;
+    transition: opacity 0.25s ease;
+  }
+
+  .top-bar:has(.lang-switch.is-open) .top-bar-left {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .lang-switch button {
-    padding: 4px 3px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   /* Footer: everything stacks */
