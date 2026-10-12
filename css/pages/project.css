@@ -67,6 +67,9 @@
 
 .project-hero-bottom {
   flex: 0 0 auto;
+  /* Full width (minus the 32px margins) in every browser, instead of a
+     width worked out from the video's proportions */
+  align-self: stretch;
   border-radius: var(--radio-l);
   overflow: hidden;
   margin: 0px 32px;

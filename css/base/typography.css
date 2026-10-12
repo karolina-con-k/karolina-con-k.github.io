@@ -10,8 +10,12 @@
 
 /* Título principal */
 
+/* Karoconk has a single weight: keep h1 at normal weight and stop the
+   browser inventing a bold (Chrome thickens the letters; Safari doesn't) */
 h1 {
   font-family: 'Karoconk', sans-serif;
+  font-weight: normal;
+  font-synthesis: none;
   font-size: 128px;
   line-height: 1.0;
   letter-spacing: -0.01em;

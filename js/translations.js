@@ -247,8 +247,8 @@ window.TRANSLATIONS = [
     ca: `Identitat, il·lustració, lògica de joc i disseny de packaging per a un joc de taula sobre la vida, divertit i caòtic, per a gent de vint-i-tants.` },
 
   { en: `A functional adult simulator!`,
-    es: `¡Un simulador de adulto funcional!`,
-    ca: `Un simulador d'adult funcional!` },
+    es: `¡Simulador oficial de un adulto funcional!`,
+    ca: `Simulador oficial d'adult funcional!` },
 
   { en: `The brief was to design a board game for people, mainly in their twenties, who long to explore the different life paths ahead of them and all the decisions those paths involve. <br><br>The main challenge was to create a dynamic identity that would remain coherent across the project's many complex elements, while finding a fun, irreverent tone through illustration and typography.`,
     es: `El brief consistía en diseñar un juego de mesa para personas, sobre todo de veintitantos, que quieren explorar los distintos caminos vitales que tienen por delante y todas las decisiones que implican. <br><br>El principal reto era crear una identidad dinámica que se mantuviera coherente en los muchos y complejos elementos del proyecto, y encontrar a la vez un tono divertido e irreverente a través de la ilustración y la tipografía.`,
