@@ -64,10 +64,11 @@
     padding-left: 10px;
 }
 
+/* The flag sits on the text's baseline (its bottom level with the letters) */
 .hero-row-text-down {
     display: flex;
     gap: 8px;
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 .hero-m {
@@ -375,7 +376,6 @@
 
   .hero-row-text-down {
     gap: 4px;
-    align-items: center;
   }
 
   .hero-row-text-down p {
