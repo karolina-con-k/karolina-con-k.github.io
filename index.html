@@ -19,6 +19,12 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.png">
+    <!-- Show karoconk.com instead of karoconk.com/index.html in the address bar -->
+    <script>
+      if (location.pathname.endsWith('/index.html')) {
+        history.replaceState(null, '', location.pathname.slice(0, -'index.html'.length) + location.search + location.hash);
+      }
+    </script>
     <!-- Intro animation: plays when you arrive at the site or reload, but not
          when you come back from one of your own pages (a project link or
          the browser's back button) -->
@@ -435,7 +441,7 @@
           </div>
           <div class="footer-left-info">
             <div class="footer-left-info-up">
-              <a href="index.html" class="footer-logo-link" aria-label="Karolina con K, home"><img src="img/logo-karoconk-s.svg" alt="logo karolina con k" class="footer-logo"></a>
+              <a href="/" class="footer-logo-link" aria-label="Karolina con K, home"><img src="img/logo-karoconk-s.svg" alt="logo karolina con k" class="footer-logo"></a>
             </div>
             <div class="footer-left-info-down">
               <p class="footer-text">
