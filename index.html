@@ -43,6 +43,11 @@
          </video>
       </a>
       <div class="top-bar-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" lang="en">EN</button>
+          <button type="button" data-lang="es" lang="es">ES</button>
+          <button type="button" data-lang="ca" lang="ca">CAT</button>
+        </div>
         
         <a href="/cv.pdf" class="top-bar-icon" target="_blank" rel="noopener">
         <img src="img/cv.svg" alt="cv" class="header-cv">
@@ -143,7 +148,7 @@
       <div class="section filters-container">
         <!-- Mobile only: "Filter +" opens the categories as a bottom sheet -->
         <div class="filter-toggle-wrap">
-          <button class="button-m filter-category filter-toggle" type="button" aria-expanded="false" aria-controls="filters">Filter
+          <button class="button-m filter-category filter-toggle" type="button" aria-expanded="false" aria-controls="filters"><span class="filter-toggle-label">Filter</span>
             <svg class="filter-toggle-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M8 2 V14 M2 8 H14"/></svg>
           </button>
         </div>
@@ -467,6 +472,8 @@
       </div>
     </footer>
 
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script>
       // Mobile: "Filter +" slides the categories up from the bottom of the
       // screen and dims the page; the ×, the dimmed page or Esc close it
@@ -496,7 +503,7 @@
       categoryButtons.forEach((button) => {
         button.setAttribute('aria-pressed', button.classList.contains('filter-category-active'));
         button.addEventListener('click', () => {
-          const category = normalise(button.textContent);
+          const category = normalise(button.dataset.en || button.textContent);
 
           categoryButtons.forEach((b) => {
             const active = b === button;
@@ -510,7 +517,7 @@
           clearTimeout(fadeTimer);
           fadeTimer = setTimeout(() => {
             projects.forEach((project) => {
-              const tags = [...project.querySelectorAll('.project-tag')].map((tag) => normalise(tag.textContent));
+              const tags = [...project.querySelectorAll('.project-tag')].map((tag) => normalise(tag.dataset.en || tag.textContent));
               project.hidden = category !== 'all' && !tags.includes(category);
             });
             projectsContainer.classList.remove('is-fading');
