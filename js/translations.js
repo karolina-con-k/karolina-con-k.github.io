@@ -291,7 +291,7 @@ window.TRANSLATIONS = [
     ca: `L'Infantil encara depèn dels seus pares, així que la seva carta mostra els símbols d'una economia estable (la dels seus pares). L'Ànima Vella, esgotada per les responsabilitats primerenques, té ulleres i una balança. El Perfeccionista no decideix si l'èxit no està garantit, d'aquí els símbols reforçats de fortuna i fracàs.` },
 
   { en: `The Procrastinator leaves everything to their future self, with a star for optimism and a clock for waiting. The Lost One could choose any path and freezes, surrounded by arrows pointing in every direction. The Chameleon follows everyone else, marked by elements of change and transformation.`,
-    es: `El Procrastinador lo deja todo para su yo del futuro, con una estrella que representa el optimismo y un reloj para la espera. El Perdido podría elegir cualquier camino y se bloquea, rodeado de flechas que apuntan en todas direcciones. El Camaleón sigue a los demás, marcado por elementos de cambio y transformación.`,
+    es: `El Procrastinador deja la responsabilidasd para su yo del futuro, con una estrella que representa su optimismo y un reloj de la espera. El Perdido podría elegir cualquier camino y eso lo paraliza, rodeado de flechas que apuntan en todas direcciones. El Camaleón sigue a los demás, marcado por elementos de cambio y transformación.`,
     ca: `El Procrastinador ho deixa tot per al seu jo del futur, amb una estrella que representa l'optimisme i un rellotge per a l'espera. El Perdut podria triar qualsevol camí i es bloqueja, envoltat de fletxes que apunten en totes direccions. El Camaleó segueix els altres, marcat per elements de canvi i transformació.` },
 
   { en: `48 special game cards, 66 decision game cards, 6 character tokens, 6 life boards, and one board.`,
@@ -303,14 +303,14 @@ window.TRANSLATIONS = [
     ca: `Per diferenciar les cartes i guiar visualment els jugadors, vaig crear un sistema de disseny basat en els patrons de les caselles i les paletes de color dels diferents camins, juntament amb un símbol per a cadascun dels tres tipus de punts del joc: diners, amor i identitat.` },
 
   { en: `The packaging is a side-opening drawer box: a cardboard sleeve wrapped in matte vinyl and a cardstock-lined tray with a ribbon pull. Inside, a cardstock insert made of three overlapping pieces leaves finger gaps for lifting out each element, and the pieces rest loosely in it instead of being fitted into place.`,
-    es: `El packaging es una caja de cajón con apertura lateral: una funda de cartón forrada de vinilo mate y una bandeja revestida de cartulina con una cinta para tirar de ella. Dentro, un inserto de cartulina formado por tres piezas superpuestas deja huecos para los dedos y poder sacar cada elemento, y las piezas reposan sueltas en él en lugar de ir encajadas.`,
+    es: `El packaging es una caja bandeja con apertura lateral: una funda de cartón forrada de vinilo mate y una bandeja revestida de cartulina con una cinta para tirar de ella. Dentro, un nido de cartulina formado por tres piezas superpuestas deja huecos para los dedos y poder sacar cada elemento, y las piezas reposan sueltas en él en lugar de ir encajadas.`,
     ca: `El packaging és una capsa de calaix amb obertura lateral: una funda de cartró folrada de vinil mat i una safata revestida de cartolina amb una cinta per estirar-la. A dins, un insert de cartolina format per tres peces superposades deixa espais per als dits per poder treure cada element, i les peces hi reposen soltes en lloc d'anar encaixades.` },
 
   /* ---------- KOS ---------- */
 
   { en: `Product design, brand identity and UX/UI design for an IOT product brand with an automated tea maker.`,
-    es: `Diseño de producto, identidad de marca y diseño UX/UI para una marca de producto IoT con una tetera automática.`,
-    ca: `Disseny de producte, identitat de marca i disseny UX/UI per a una marca de producte IoT amb una tetera automàtica.` },
+    es: `Diseño de producto, identidad de marca y diseño UX/UI para una marca de producto IoT con una tetera inteligente.`,
+    ca: `Disseny de producte, identitat de marca i disseny UX/UI per a una marca de producte IoT amb una tetera intel·ligent.` },
 
   { en: `Team work with: <span class="body-bold">Carolina Soler</span>`,
     es: `Trabajo en equipo con: <span class="body-bold">Carolina Soler</span>`,
@@ -329,8 +329,8 @@ window.TRANSLATIONS = [
     ca: `En la nostra rutina atrafegada, necessitem fer una pausa diària. Per a molts, aquesta pausa és un ritual de te.` },
 
   { en: `kos is a tea brand built around an automated tea maker that turns brewing into a personal ritual. Users can schedule their brews in advance, customize ingredients and blends to their taste, and share their recipes with a community of fellow tea drinkers, making each cup both effortless and their own.`,
-    es: `kos es una marca de té construida en torno a una tetera automática que convierte la infusión en un ritual personal. Los usuarios pueden programar sus infusiones con antelación, personalizar ingredientes y mezclas a su gusto y compartir sus recetas con una comunidad de amantes del té, para que cada taza sea fácil de preparar y totalmente suya.`,
-    ca: `kos és una marca de te construïda al voltant d'una tetera automàtica que converteix la infusió en un ritual personal. Els usuaris poden programar les infusions amb antelació, personalitzar ingredients i barreges al seu gust i compartir les seves receptes amb una comunitat d'amants del te, perquè cada tassa sigui fàcil de preparar i totalment seva.` },
+    es: `kos es una marca de té construida en torno a una tetera inteligente que convierte la infusión en un ritual personal. Los usuarios pueden programar sus infusiones con antelación, personalizar ingredientes y mezclas a su gusto y compartir sus recetas con una comunidad de amantes del té, para que cada taza sea fácil de preparar y totalmente suya.`,
+    ca: `kos és una marca de te construïda al voltant d'una tetera intel·ligent que converteix la infusió en un ritual personal. Els usuaris poden programar les infusions amb antelació, personalitzar ingredients i barreges al seu gust i compartir les seves receptes amb una comunitat d'amants del te, perquè cada tassa sigui fàcil de preparar i totalment seva.` },
 
   { en: `Inspired by the idea of the comfort zone, the visual identity brings warmth, calm, and coziness to every element. The dark color palette is designed for the moments the product is used most, early mornings and late nights, matching the daily rhythm of its audience.`,
     es: `Inspirada en la idea de la zona de confort, la identidad visual aporta calidez, calma y acogimiento a cada elemento. La paleta de colores oscura está pensada para los momentos en los que más se usa el producto, a primera hora de la mañana y por la noche, siguiendo el ritmo diario de su público.`,
@@ -363,8 +363,8 @@ window.TRANSLATIONS = [
     ca: `Identitat de marca i disseny UX/UI per a un festival poc convencional de tres dies sobre fongs i tecnologia a Londres, Regne Unit.` },
 
   { en: `Fungi &amp; Technology 2025 Convention.`,
-    es: `Convención Fungi &amp; Technology 2025.`,
-    ca: `Convenció Fungi &amp; Technology 2025.` },
+    es: `Fungi &amp; Technology 2025 Convention.`,
+    ca: `Fungi &amp; Technology 2025 Convention.` },
 
   { en: `The brief consisted on creating the identity and digital applications of a three-day festival.`,
     es: `El brief consistía en crear la identidad y las aplicaciones digitales de un festival de tres días.`,
@@ -429,8 +429,8 @@ window.TRANSLATIONS = [
     ca: `Disseny de packaging per a una línia d'aliments sostenible i innovadora a base d'insectes, adreçada a un públic jove i conscient.` },
 
   { en: `Tiny bugs, big impact. Snack smart!`,
-    es: `Bichos pequeños, gran impacto. ¡Picotea con cabeza!`,
-    ca: `Bestioles petites, gran impacte. Pica amb cap!` },
+    es: `Tiny bugs, big impact. Snack smart!`,
+    ca: `Tiny bugs, big impact. Snack smart!` },
 
   { en: `The brief focused on reimagining a food brand centered on insect protein, with the challenge of making it appealing to a Western audience.`,
     es: `El brief se centraba en reimaginar una marca de alimentación basada en la proteína de insecto, con el reto de hacerla atractiva para el público occidental.`,

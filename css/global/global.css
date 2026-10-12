@@ -335,6 +335,13 @@ footer {
 .footer-logo {
   height: 60px;
   width: auto;
+  display: block;
+}
+
+/* The footer logo links to the home page */
+.footer-logo-link {
+  display: inline-block;
+  align-self: flex-start;
 }
 
 .footer-text {
