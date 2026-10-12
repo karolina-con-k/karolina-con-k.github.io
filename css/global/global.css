@@ -245,8 +245,20 @@ body {
   height: 18px;
 }
 
+/* "CV" in the top bar: text in the same type as the language switcher */
 .header-cv {
-  height: 12px;
+  display: block;
+  padding: 4px 0;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--greish);
+}
+
+.top-bar-icon {
+  text-decoration: none;
 }
 
 /* MAIN */
@@ -522,7 +534,8 @@ footer {
     pointer-events: none;
   }
 
-  .lang-switch button {
+  .lang-switch button,
+  .header-cv {
     font-size: 14px;
   }
 
